@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0 AS build
 WORKDIR /src
-COPY myMicroservice.csproj .
+COPY sampleNetCoreAPI.csproj .
 RUN dotnet restore
 COPY . .
 RUN dotnet publish -c release -o /app
@@ -8,5 +8,5 @@ RUN dotnet publish -c release -o /app
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.0
 WORKDIR /app
 COPY --from=build /app .
-ENTRYPOINT ["dotnet", "myMicroservice.dll"]
+ENTRYPOINT ["dotnet", "sampleNetCoreAPI.dll"]
 EXPOSE 5000
