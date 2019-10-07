@@ -11,7 +11,7 @@ workflows:
           aws-access-key-id: ${AWS_ACCESS_KEY}
           aws-secret-access-key: ${AWS_SECRET_KEY}
           region: ${AWS_DEFAULT_REGION}
-          repo: "${AWS_RESOURCE_NAME_PREFIX}""
+          repo: "${AWS_RESOURCE_NAME_PREFIX}"
           tag: "${CIRCLE_SHA1}"
       - aws-ecs/deploy-service-update:
           requires:
